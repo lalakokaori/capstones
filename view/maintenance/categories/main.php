@@ -1,4 +1,4 @@
-<?php
+<?php include('../../../controller/master/log.php');
 
 $types=$_GET["types"];
 echo'<input type="hidden" id="type" value="'.$types.'">';
