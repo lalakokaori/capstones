@@ -1,4 +1,27 @@
+<?php
+  if(!isset($_SESSION))
+  { session_start(); }
+ini_set('display_errors',1);
+error_reporting(E_ALL & ~E_NOTICE);
 
+
+  if($_SESSION["persan_user_name"]=="" || $_SESSION["persan_user_type"]=="")
+  {?>
+    <script type="text/javascript">
+      function Redirect()
+      {
+        window.location="view/master/login.php";
+       // alert("Please Log-in");
+      }
+      Redirect();
+    </script>
+  <?php }
+  else{
+  $persan_user_name = $_SESSION["persan_user_name"];
+  $persan_user_type = $_SESSION["persan_user_type"];
+  echo'<input type="hidden" id="persan_user_type" value="'.$persan_user_type.'">';
+  }
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php include("view/master/design.html");//header and design ?>
@@ -48,7 +71,7 @@
            <li class="divider"></li>
             <li><a href="view/maintenance/scope/main.php">Scope of Work</a></li>
             <li><a href="view/maintenance/subcontractor/main.php">Subcontractor</a></li>
-            <li><a href="view/maintenance/subcontractor/main.php">Part</a></li>
+            <li><a href="view/maintenance/part/main.php">Part</a></li>
           </ul>
         </li>
 
@@ -62,15 +85,16 @@
  <li class="dropdown"">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Task <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" style="background-color: grey;">
-            <li><a href="view/transaction/progress/main.php">Project Manager</a></li>
-           <li><a href="view/transaction/progress/main.php">Safety Officer</a></li>
+            <li><a href="view/transaction/PM/main.php">Project Manager</a></li>
+           <li><a href="view/transaction/SO/main.php">Safety Officer</a></li>
+          <li><a href="view/transaction/PI/main.php">Project Engineer</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Records <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" style="background-color: grey;">
            <li><a href="view/transaction/project/main.php">Contract Records</a></li>
-           <li><a href="view/transaction/progress/main.php">Photo Gallery</a></li>
+           <li><a href="view/transaction/photo/main.php">Photo Gallery</a></li>
            <li><a href="view/transaction/progress/main.php">Reports</a></li>
           </ul>
         </li>
@@ -97,7 +121,6 @@
                     <h4 class="page-head-line">Home</h4>
 
                 </div>
-
             </div>
              <div class="content-wrapper">
         <div class="container">

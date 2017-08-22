@@ -9,8 +9,6 @@
 
   if($_SESSION["persan_user_name"]=="" || $_SESSION["persan_user_type"]=="")
   {?>
-    <script src="../../../plugins/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../../plugins/sweetalert/dist/sweetalert.css">
     <script type="text/javascript">
       function Redirect()
       {

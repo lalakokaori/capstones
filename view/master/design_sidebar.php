@@ -2,7 +2,7 @@
 and add conditions using user login sessions (e.g. if user login session is admin it will
 show specific links else not admin it will hide it)   using if else conditions in php
 
-for page view/.../main.php
+for page ../../../view/.../main.php
 -->
  
  
@@ -34,10 +34,7 @@ for page view/.../main.php
            <li class="divider"></li>
             <li><a href="../../../view/maintenance/scope/main.php">Scope of Work</a></li>
             <li><a href="../../../view/maintenance/subcontractor/main.php">Subcontractor</a></li>
-            <li><a href="view/maintenance/bar/main.php">Bar Chart</a></li>
-            <li><a href="view/maintenance/line/main.php">Line Chart</a></li>
-            <li><a href="view/maintenance/photo/main.php">Photo Gallery</a></li>
-            <li><a href="view/maintenance/user/main.php">Project</a></li>
+            <li><a href="../../../view/maintenance/part/main.php">Part</a></li>
           </ul>
         </li>
 
@@ -51,24 +48,26 @@ for page view/.../main.php
  <li class="dropdown"">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Task <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" style="background-color: grey;">
-            <li><a href="../../../view/transaction/project/main.php">Projects</a></li>
-           <li><a href="../../../view/transaction/progress/main.php">Progress</a></li>
-
+            <li><a href="../../../view/transaction/PM/main.php">Project Manager</a></li>
+           <li><a href="../../../view/transaction/SO/main.php">Safety Officer</a></li>
+          <li><a href="../../../view/transaction/PI/main.php">Project Engineer</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Records <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" style="background-color: grey;">
+           <li><a href="../../../view/transaction/project/main.php">Contract Records</a></li>
+           <li><a href="../../../view/transaction/photo/main.php">Photo Gallery</a></li>
+           <li><a href="../../../view/transaction/progress/main.php">Reports</a></li>
           </ul>
         </li>
 
-
-                            <li><a href="#">Reports</a></li>
-                             <li class="dropdown"">
+          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;</i> <?php echo "$persan_user_type"; ?><span class="caret"></span></a>
 
           <ul class="dropdown-menu" role="menu" style="background-color: grey;">
             <li><a href="../../../view/utilities/user/main.php">My Account</a></li>
            <li><a href="#" onclick="return logout1();">Logout</a></li>
-
-
-
-
                         </ul>
                     </div>
                 </div>

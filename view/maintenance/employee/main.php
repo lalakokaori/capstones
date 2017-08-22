@@ -1,5 +1,4 @@
-
-
+<?php include('../../../controller/master/log.php');?>
 <!---->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,14 +38,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+
 
                      <!-- End Modals-->
 <!--**********************************-->
 
 
-            </div>
+          
 
             <div class="row">
 

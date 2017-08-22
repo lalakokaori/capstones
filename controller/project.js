@@ -22,12 +22,13 @@ function populate_table_main(){
 	    for(var i = 0; i < s.length; i++)
 	    {
 	    	//if(s[i][2]=='inactive'){enability='disabled'}
+
 	      table_main.fnAddData
-	      ([s[i][0],s[i][1],s[i][2],s[i][3],s[i][4],s[i][5],
+	      ([s[i][0],s[i][1]+" "+s[i][2],
 
 
 	        '<button data-toggle="tooltip" onclick="table_row_view(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs " title="VIEW /Edit" > <i class="fa fa-eye"></i>View</button>',
-					'<button data-toggle="tooltip" onclick="table_row_del(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs  btn-danger" title="Delete"> <i class="fa fa-trash"></i>Delete </button>',
+	        '<button data-toggle="tooltip" onclick="table_row_del(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs  btn-danger" title="Delete"> <i class="fa fa-trash"></i>Delete </button>',
 	      ],false);
 	      table_main.fnDraw();
 
@@ -50,11 +51,13 @@ function table_row_view(id){
 	  cache: false,
 	  success: function(s){
 	  	$('#btn_save').val(id);
+	  	$('#f_ID').val(id);
 		$('#f_name').val(s[0][1]);
-	  	$('#f_contact').val(s[0][2]);
-	  	$('#f_address').val(s[0][3]);
-	  	$('#f_email').val(s[0][4]);}
-
+	  	$('#f_cont').val(s[0][3]);	
+	  	$('#f_add').val(s[0][4]);
+	  	$('#f_job').val(s[0][2]);
+	  	$('#f_email').val(s[0][5]);
+	  }
 	});
 	//ajax end
 }
@@ -66,27 +69,24 @@ $('#btn_reset').click(function(){ reset(); tae();})
 function validate_form(){
 	err = false;
 
+	if($('#f_ID').val()==''){
+		err = true;
+		$('#f_ID_div').addClass('has-error');
+	}
+	else
+		$('#f_ID_div').removeClass('has-error');
 	if($('#f_name').val()==''){
 		err = true;
 		$('#f_name_div').addClass('has-error');
 	}
 	else
 		$('#f_name_div').removeClass('has-error');
-
-	if($('#f_contact').val()==''){
+	if($('#f_cont').val()==''){
 		err = true;
-		$('#f_contact_div').addClass('has-error');
+		$('#f_cont_div').addClass('has-error');
 	}
 	else
-		$('#f_contact_div').removeClass('has-error');
-
-	if($('#f_address').val()==''){
-		err = true;
-		$('#f_address_div').addClass('has-error');
-	}
-	else
-		$('#f_address_div').removeClass('has-error');
-
+		$('#f_cont_div').removeClass('has-error');
 	if($('#f_email').val()==''){
 		err = true;
 		$('#f_email_div').addClass('has-error');
@@ -101,15 +101,16 @@ function validate_form(){
 function reset(){
 	$('#btn_save').val('create');
 	//tae('All fields of '+$('#f_job').val()+' has been cleared')
+	$('#f_ID').val('');
 	$('#f_name').val('');
-	$('#f_contact').val('');
-	$('#f_address').val('');
+	$('#f_cont').val('');
 	$('#f_email').val('');
+	//$('#modal_user_type').
 
 
+	$('#f_ID_div').removeClass('has-error');
 	$('#f_name_div').removeClass('has-error');
-	$('#f_contact_div').removeClass('has-error');
-	$('#f_address_div').removeClass('has-error');
+	$('#f_cont_div').removeClass('has-error');
 	$('#f_email_div').removeClass('has-error');
 
 
@@ -122,7 +123,7 @@ function tae()
 {
 
 
-swal({
+swal({    
 
 title: "Cleared",
   text: "Will close in 1 second",
@@ -142,7 +143,7 @@ function table_row_del(id){
 swal({
   title: "Do you want to Delete?",
 
-
+  
   type: "warning",
   showCancelButton: true,
   confirmButtonColor: "#DD6B55",
@@ -187,11 +188,14 @@ $('#btn_save').click(function(){
 	if(validate_form()==true){}
 	else{
 
+		var ID = $('#f_ID').val();
 		var name = $('#f_name').val();
-		var contact = $('#f_contact').val();
-		var add = $('#f_address').val();
-		var email = $('#f_email').val();
-		var dataString = 'name='+name+'&contact='+contact+'&address='+add+'&email='+email;
+		var job = $('#f_job').val();
+		var contact = $('#f_cont').val();	
+		var email = $('#f_email').val()
+		var address = $('#f_add').val();
+		var dataString = 'ID='+ID+'&name='+name+'&job='+job+"&email="+email+"&contact="+contact+"&address="+address;
+
 
 
 
@@ -209,8 +213,8 @@ $('#btn_save').click(function(){
 			});
 			//ajax end
 		  	//alert('Saved');
-
-swal({
+		  	
+swal({    
 
 title: "Saved",
   text: "Will close in 1 seconds.",
@@ -221,8 +225,8 @@ title: "Saved",
 
 });
 		  	reset();
+				$("#myModal").modal("hide");
 		  	populate_table_main();
-		  	$("#myModal").modal("hide");
 		}
 		else{ //UPDATE MODE
 			var id = this.value;
@@ -236,7 +240,7 @@ title: "Saved",
 			  success: function(s){}
 			});
 			//ajax end
-		  	swal({
+		  	swal({    
 
 title: "Updated",
   text: "Will close in 1 seconds.",
@@ -247,12 +251,12 @@ title: "Updated",
 
 });
 		  	reset();
+				$("#myModal").modal("hide");
 		  	populate_table_main();
-			$("#myModal").modal("hide");
-
 		}
 	}
 
 
 
 })
+
