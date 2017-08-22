@@ -1,4 +1,4 @@
-
+<?php include('../../../controller/master/log.php');?>
 
 <!---->
 <!DOCTYPE html>
