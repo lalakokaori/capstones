@@ -12,21 +12,18 @@
                 <!--**********************************-->
             <div class="row" style="padding-top: 25px;">
                 <div class="col-md-12">
-                    <h4 class="page-head-line">Client</h4>
+                    <h4 class="page-head-line">Project Engineer</h4>
                         <div class="panel-body">
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
-                        <BR>
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="reset();">
+                              Insert Daily Report
+                            </button><br/><br/>
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="reset();">
+                             Insert Weekly Report
+                            </button><br/><br/>
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="reset();">
+                             Insert Monthly Report
+                            </button>
+
 
                         </div>
                 </div>

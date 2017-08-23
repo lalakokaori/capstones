@@ -79,14 +79,14 @@ error_reporting(E_ALL & ~E_NOTICE);
                             <li class="dropdown"">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Utility <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" style="background-color: grey;">
-            <li><a href="view/utilities/admin/main.php">Manage Account</a></li>
+            <li><a href="view/others/manage/main.php">Manage Account</a></li>
           </ul>
         </li>
  <li class="dropdown"">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Task <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" style="background-color: grey;">
             <li><a href="view/transaction/PM/main.php">Project Manager</a></li>
-           <li><a href="view/transaction/SO/main.php">Safety Officer</a></li>
+           <li><a href="view/transaction/safety/main.php">Safety Officer</a></li>
           <li><a href="view/transaction/PI/main.php">Project Engineer</a></li>
           </ul>
         </li>
@@ -103,7 +103,7 @@ error_reporting(E_ALL & ~E_NOTICE);
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;</i> <?php echo "$persan_user_type"; ?><span class="caret"></span></a>
 
           <ul class="dropdown-menu" role="menu" style="background-color: grey;">
-            <li><a href="view/utilities/user/main.php">My Account</a></li>
+            <li><a href="view/others/account/main.php">My Account</a></li>
            <li><a href="#" onclick="return logout1();">Logout</a></li>
                         </ul>
                     </div>
